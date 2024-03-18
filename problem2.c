@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "mpi.h"
 
 char Encrypt(char c) {
-    return (char)((((c - 'a') + 3) % 26) + 'a');
+    if(islower(c))return (char)((((c - 'a') + 3) % 26) + 'a');
+    return (char)((((c - 'A') + 3) % 26) + 'A');    
 }
 
 char Decrypt(char c) {
-    return ((((c - 'a') - 3 + 26) % 26) + 'a');
+    if(islower(c))return ((((c - 'a') - 3 + 26) % 26) + 'a');
+    return ((((c - 'A') - 3 + 26) % 26) + 'A');
 }
 
 int main(int argc, char *argv[]) {
