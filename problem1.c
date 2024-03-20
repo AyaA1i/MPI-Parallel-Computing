@@ -1,5 +1,6 @@
 // Online C compiler to run C program online
 #include <stdio.h>
+#include <unistd.h>
 #include <string.h>
 #include "mpi.h"
 // need a function to check if the number is prime or not
@@ -99,6 +100,7 @@ else // i am a slave
     MPI_Recv(&subtotal, 1, MPI_INT, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         total+=subtotal;
     }
+    sleep(1);
     printf("total number of prime numbers is %d  !\n",total);
         
 }
