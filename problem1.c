@@ -100,7 +100,6 @@ else // i am a slave
     MPI_Recv(&subtotal, 1, MPI_INT, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         total+=subtotal;
     }
-    sleep(1);
     printf("total number of prime numbers is %d  !\n",total);
         
 }
